@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import blog from '../src/service/blog/blog';
 import './App.less';
 
 function App() {
 	const [count, setCount] = useState(0)
+	useEffect(()=>{
+		blog.getDetail('20').then( res => {
+			console.log(res)
+		})
+	}, [])
 	return (
 		<div className="App">
 			<div>share-blog{count}</div>

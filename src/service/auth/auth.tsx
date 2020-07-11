@@ -1,5 +1,6 @@
 import { http } from '../requset';
 import { message } from 'antd';
+import { AxiosResponse } from 'axios';
 
 export enum AuthUrl {
 	register = '/auth/register',
@@ -16,7 +17,7 @@ export interface User {
 export default {
 	register(user: User) {
 		return new Promise((resolve, reject) => {
-			http.post(AuthUrl.register, user).then((res) => {
+			http.post(AuthUrl.register, user).then((res: AxiosResponse) => {
 				if (res.data.status === 'ok') {
 					message.success(res.data.msg);
 					resolve(res.data);
@@ -30,7 +31,7 @@ export default {
 
 	login(user: User) {
 		return new Promise((resolve, reject) => {
-			http.post(AuthUrl.login, user).then((res) => {
+			http.post(AuthUrl.login, user).then((res: AxiosResponse) => {
 				if (res.data.status === 'ok') {
 					message.success(res.data.msg);
 					resolve(res.data)
@@ -60,9 +61,10 @@ export default {
 				if (res.data.status === 'ok') {
 					resolve(res.data)
 				}
-		}).catch((err) => {
-			reject(err.data)
+			}).catch((err) => {
+				reject(err.data)
+			})
 		})
-	})
-}
+	}
+
 }
