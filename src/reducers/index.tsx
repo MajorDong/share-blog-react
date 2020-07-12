@@ -7,7 +7,7 @@ export interface AuthStoreState {
 
 const defaultState = {
 	user: {} as UserInfo,
-	isLogin: false
+	isLogin: true,
 }
 
 function auth(state = defaultState, action: any): AuthStoreState {

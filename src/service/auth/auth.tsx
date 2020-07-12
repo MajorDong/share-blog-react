@@ -45,8 +45,8 @@ export default {
 
 	logout() {
 		return http.get(AuthUrl.logout).then((res) => {
-			if (res.data.status === 'ok') {
-				message.success(res.data.msg)
+			if (res.data.status === 'fail') {
+				message.warn(res.data.msg)
 				return res.data
 			}
 		}).catch((err) => {

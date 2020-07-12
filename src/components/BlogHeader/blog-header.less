@@ -1,0 +1,106 @@
+.blog-header {
+	.header-after-login{
+		display: flex;
+		align-items: center;
+		background: #0a1d30;
+		padding: 7px 13px;
+		.add-article{
+			margin-right: 20px;
+			&:hover{
+				cursor: pointer;
+			}
+		}
+		.user {
+			margin-right: 30px;
+		}
+		a {
+			text-decoration: none;
+      color: #ffffff;
+		}
+		> h1 {
+			flex-grow: 1;
+			color: #ffffff;
+			margin: 0;
+      > a{
+        text-decoration: none;
+        color: #ffffff;
+      }
+		}
+		
+	}
+	.blog-header-nologin{
+		height: 400px;
+		position: relative;
+		>.banner {
+			height: 100%;
+			width: 100%;
+			background-image: url(../../assets/bheader.jpg);
+			background-position: center;
+			object-fit: cover;
+
+			>.logo{
+				text-decoration: none;
+        font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial,cursive;
+        font-size: 20px;
+        font-weight: bold;
+        position: absolute;
+        transform: translateY(-50%);
+        color: #fff;
+        top: 50%;
+        left: 0;
+        width: 150px;
+        height: 150px;
+        background-color: #0a1d30;
+        z-index: 30;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+			}
+
+			>.slogan-wrapper {
+				position: absolute;
+        top: 15%;
+        left: 25%;
+        color: #ffffff;
+				font-family: "Libre Baskerville", serif;
+				> h1 {
+					font-size: 60px;
+					color: #ffffff;
+          font-family: "Libre Baskerville", serif;
+        }
+        > .line {
+          width: 64px;
+          height: 0;
+          border-top: 3px solid;
+          border-color: #61baf1;
+          margin-top: 7px;
+          margin-bottom: 20px;
+        }
+        > .title {
+          font: 14px/1.6 Arial, "Microsoft YaHei", "黑体", "宋体", sans-serif;
+          font-size: 17px;
+          margin-bottom: 20px;
+				}
+				.header-button {
+					font-size: 15px;
+          border-radius: 3px;
+          border: 2px solid #ffffff;
+          color: #ffffff;
+          background: #0a1d30;
+          padding: 7px 22px;
+					margin-right: 13px;
+					outline: none;
+					font: 14px/1.6 Arial, "Microsoft YaHei", "黑体", "宋体", sans-serif;
+					&:hover {
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #35bdf6;
+            border-color: #61baf1;
+            box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
+          }
+				}
+			}
+		}
+		
+	}
+}

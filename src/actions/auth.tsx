@@ -37,7 +37,7 @@ export const fetchRegister = (user: User) => (dispatch: any) => {
 
 export const fetchLogout = () => (dispatch: any) => {
 	httpAuth.logout().then((res) => {
-		if(res.status === 'ok'){
+		if(res.status === 'fail'){
 			dispatch(setLogin(false));
 			dispatch(setUser({ } as UserInfo))
 		}

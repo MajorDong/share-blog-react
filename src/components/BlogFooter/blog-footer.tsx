@@ -7,7 +7,7 @@ function BlogFooter(){
 	return (
 		<>
 			<footer className="footer">
-				<span>Copyright © 2019 Jerry Shen.</span>
+				<span>Copyright © 2020 Tommy Shen.</span>
 			</footer>
 		</>
 	)
