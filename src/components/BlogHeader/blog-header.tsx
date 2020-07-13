@@ -66,7 +66,7 @@ function BlogHeader(props: BlogHeaderProps) {
 	)
 
 	const headerAfterLogin = (
-		<div className="header-after-login" v-else>
+		<div className="header-after-login">
 			<h1>BlOGTALK</h1>
 			<div className="add-article">
 				<Popover content={popoverContent}>

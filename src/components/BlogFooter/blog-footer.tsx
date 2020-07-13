@@ -2,8 +2,6 @@ import * as React from 'react';
 import './blog-footer.less';
 
 function BlogFooter(){
-
-	
 	return (
 		<>
 			<footer className="footer">
