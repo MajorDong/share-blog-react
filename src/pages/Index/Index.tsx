@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import httpBlog from '../../service/blog/blog';
 import { List, Avatar, Tag, Pagination } from 'antd';
 import moment from 'moment';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { Link, useHistory, useLocation, } from 'react-router-dom';
 import './index.less'
 
 export interface IndexProps {
@@ -13,12 +13,16 @@ const Index: React.FC<IndexProps> = () => {
 	const history = useHistory();
 	const location = useLocation();
 	const [blogs, setBlogs] = useState([]);
-	const [page, setPage] = useState(() => Number(location.search) || 1);
+	const [page, setPage] = useState(() => {
+		const page = Number(location.search.split('=')[1]) || 1;
+		return page
+	});
 	const [total, setTotal] = useState(0);
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		httpBlog.getIndexBlog(page).then((res: any) => {
+			console.log(res)
 			setBlogs(res.data);
 			setPage(res.page);
 			setTotal(res.total);
@@ -58,7 +62,7 @@ const Index: React.FC<IndexProps> = () => {
 										<div className="blog-user">
 											<Avatar size="large" src={blog.user.avatar}></Avatar>
 											<div>
-												<Link to={`/user/${blog.user.userId}`}>{blog.user.username}</Link>
+												<Link to={`/user/${blog.user.id}`}>{blog.user.username}</Link>
 											</div>
 										</div>
 									}
@@ -79,6 +83,7 @@ const Index: React.FC<IndexProps> = () => {
 				</section>
 				<section className="pagination">
 					<Pagination
+						current={page}
 						showSizeChanger={false}
 						total={total}
 						showQuickJumper

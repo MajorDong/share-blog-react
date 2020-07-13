@@ -12,7 +12,7 @@ const Login: React.FC<LoginProps> = (props) => {
 
 	return ( 
 		<>
-			
+			登录
 		</>
 	 );
 }
