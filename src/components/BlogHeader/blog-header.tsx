@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, memo } from 'react';
 import { AuthStoreState } from '../../reducers/index';
 import { UserInfo } from '../../types/user-info';
 import { fetchCheckIsLogined, fetchLogout } from '../../actions/auth'
@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import './blog-header.less'
 import { Avatar, Popover, Menu, Dropdown } from 'antd';
 import { PlusCircleOutlined, UserOutlined } from '@ant-design/icons'
+import { Link } from 'react-router-dom';
 
 export interface BlogHeaderProps {
 	isLogin: boolean,
@@ -15,7 +16,7 @@ export interface BlogHeaderProps {
 	fetchLogout: () => void,
 }
 
-function BlogHeader(props: BlogHeaderProps) {
+const BlogHeader = memo(function BlogHeader(props: BlogHeaderProps) {
 	const {
 		isLogin,
 		user,
@@ -25,7 +26,7 @@ function BlogHeader(props: BlogHeaderProps) {
 
 	useEffect(() => {
 		fetchCheckIsLogined();
-	},[fetchCheckIsLogined])
+	}, [fetchCheckIsLogined])
 
 	const hangleOnCheckOut = () => {
 		fetchLogout();
@@ -35,15 +36,21 @@ function BlogHeader(props: BlogHeaderProps) {
 		<div className="blog-header-nologin">
 			<div className="banner">
 				<div className="logo">
-					BlogTalk
+					<Link to='/'>
+							BlogTalk
+					</Link>
 				</div>
 				<div className="slogan-wrapper">
 					<h1>We think through blogs.</h1>
 					<div className="line"></div>
 					<div className="title">博客交流思想 LET'S SHARE</div>
 					<div>
-						<button className="header-button">立即登录</button>
-						<button className="header-button">注册账号</button>
+						<Link to="/login">
+							<button className="header-button">立即登录</button>
+						</Link>
+						<Link to="/register">
+							<button className="header-button">注册账号</button>
+						</Link>
 					</div>
 				</div>
 			</div>
@@ -76,7 +83,7 @@ function BlogHeader(props: BlogHeaderProps) {
 			<div className="user">
 				<Dropdown overlay={userMenu} trigger={['click']} placement="bottomCenter" arrow>
 					<Avatar icon={<UserOutlined />} src={user.avatar} alt={user.usernaem} />
-				</Dropdown>	
+				</Dropdown>
 			</div>
 		</div >
 	)
@@ -84,14 +91,14 @@ function BlogHeader(props: BlogHeaderProps) {
 	return (
 		<>
 			<div className="blog-header">
-				{ isLogin
+				{isLogin
 					? headerAfterLogin
 					: headerBeforeLogin
 				}
 			</div>
 		</>
 	)
-}
+})
 
 const mapStateToProps = (state: AuthStoreState) => {
 	return {

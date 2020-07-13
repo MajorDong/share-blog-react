@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import RouteIndex from './router/index';
 import BlogFooter from './components/BlogFooter/blog-footer';
 import BlogHeader from './components/BlogHeader/blog-header';
@@ -9,11 +9,11 @@ function App() {
 
 	return (
 		<div className="App">
-			<BlogHeader />
-			<Router >
-				<RouteIndex></RouteIndex>
-			</Router>
-			<BlogFooter />
+			<HashRouter>
+				<BlogHeader />
+				<RouteIndex />
+				<BlogFooter />
+			</HashRouter>
 		</div>
 	);
 }
