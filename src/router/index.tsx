@@ -36,7 +36,7 @@ export default function RouteIndex() {
 				<Route path='/edit/:blogId'>
 					{isLogin ? <Edit /> : <Redirect to='/login' />}
 				</Route>
-				<Route path='/uset/:userId'>
+				<Route path='/user/:userId'>
 					{isLogin ? <User /> : <Redirect to='/login' />}
 				</Route>
 				<Route path='/my'>

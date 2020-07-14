@@ -64,7 +64,7 @@ const BlogHeader = memo(function BlogHeader(props: BlogHeaderProps) {
 	const userMenu = (
 		<Menu>
 			<Menu.Item key="0">
-				<span>我的文章</span>
+				<span><Link to="/my" style={{ 'color': 'rgba(0, 0, 0, 0.65)'}}>我的文章</Link></span>
 			</Menu.Item>
 			<Menu.Item key="1">
 				<span onClick={hangleOnCheckOut}>注销</span>

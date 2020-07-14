@@ -23,7 +23,7 @@ function auth(state = defaultState, action: any): AuthStoreState {
 				isLogin: action.payload,
 			}
 		default:
-			return state
+			return {...state}
 	}
 }
 
