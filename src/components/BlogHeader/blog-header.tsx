@@ -74,7 +74,7 @@ const BlogHeader = memo(function BlogHeader(props: BlogHeaderProps) {
 
 	const headerAfterLogin = (
 		<div className="header-after-login">
-			<h1>BlOGTALK</h1>
+			<h1><Link to='/'>BlOGTALK</Link></h1>
 			<div className="add-article">
 				<Popover content={popoverContent}>
 					<PlusCircleOutlined style={{ 'color': '#52c41a', 'fontSize': '32px' }} />

@@ -27,7 +27,7 @@ export const fetchLogin = (user: User) => (dispatch: any) => {
 }
 
 export const fetchRegister = (user: User) => (dispatch: any) => {
-	 httpAuth.register(user).then((res: any) => {
+	 return httpAuth.register(user).then((res: any) => {
 		if(res.status === 'ok'){
 			dispatch(setLogin(true));
 			dispatch(setUser(res));

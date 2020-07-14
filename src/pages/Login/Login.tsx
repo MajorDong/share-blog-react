@@ -4,7 +4,7 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import './Login.less'
 import { Link, useHistory } from 'react-router-dom'
 import { connect } from 'react-redux';
-import { AnyAction, bindActionCreators, Dispatch} from 'redux';
+import { AnyAction, bindActionCreators, Dispatch } from 'redux';
 import { fetchLogin } from '../../actions/auth';
 
 
@@ -15,9 +15,10 @@ const Login = (props: any) => {
 	useEffect(() => {
 		message.info('请登录账号')
 	}, [])
-	 const onFinish = async (values: any) => {
+
+	const onFinish = async (values: any) => {
 		await props.fetchLogin(values);
-		history.replace('/')
+		history.push('/')
 	};
 
 	return (
