@@ -10,5 +10,22 @@ body {
 	font: Arial, "Microsoft YaHei", "黑体", "宋体", sans-serif;
 }
 
+.App {
+	display:grid;
+	grid-template-rows: auto 3fr auto;
+	grid-template-columns: 12% auto 12%;
+	grid-template-areas: "header header header"
+											 ".      main   .     "
+											 "footer footer footer";
+	.header{
+		grid-area: header;
+	}
+	.main{
+		grid-area: main;
+	}
+	.footer {
+		grid-area: footer;
+	}
+}
 
 

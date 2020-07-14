@@ -10,9 +10,9 @@ function App() {
 	return (
 		<div className="App">
 			<HashRouter>
-				<BlogHeader />
-				<RouteIndex />
-				<BlogFooter />
+				<div className="header"><BlogHeader /></div>
+				<main className='main'><RouteIndex /></main>
+				<div className="footer"><BlogFooter /></div>
 			</HashRouter>
 		</div>
 	);

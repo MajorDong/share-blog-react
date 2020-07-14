@@ -22,7 +22,6 @@ const Index: React.FC<IndexProps> = () => {
 
 	useEffect(() => {
 		httpBlog.getIndexBlog(page).then((res: any) => {
-			console.log(res)
 			setBlogs(res.data);
 			setPage(res.page);
 			setTotal(res.total);

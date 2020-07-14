@@ -18,7 +18,7 @@ const setLogin = (payload: boolean) => {
 }
 
 export const fetchLogin = (user: User) => (dispatch: any) => {
-	httpAuth.login(user).then( (res: any) => {
+	return httpAuth.login(user).then( (res: any) => {
 		if(res.status === 'ok'){
 			dispatch(setLogin(true));
 			dispatch(setUser(res));
@@ -27,7 +27,7 @@ export const fetchLogin = (user: User) => (dispatch: any) => {
 }
 
 export const fetchRegister = (user: User) => (dispatch: any) => {
-	httpAuth.register(user).then((res: any) => {
+	 httpAuth.register(user).then((res: any) => {
 		if(res.status === 'ok'){
 			dispatch(setLogin(true));
 			dispatch(setUser(res));
@@ -37,7 +37,7 @@ export const fetchRegister = (user: User) => (dispatch: any) => {
 
 export const fetchLogout = () => (dispatch: any) => {
 	httpAuth.logout().then((res) => {
-		if(res.status === 'fail'){
+		if(res.status === 'ok'){
 			dispatch(setLogin(false));
 			dispatch(setUser({ } as UserInfo))
 		}
