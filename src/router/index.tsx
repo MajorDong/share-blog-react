@@ -25,7 +25,7 @@ export default function RouteIndex() {
 					<Register />
 				</Route>
 				<Route path='/login'>
-					<Login />
+					{!isLogin ? <Login /> : <Redirect to='/' />}
 				</Route>
 				<Route path='/detail/:blogId'>
 					<Detail />
