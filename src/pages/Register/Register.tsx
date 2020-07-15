@@ -18,6 +18,7 @@ const Register  = (props:any) => {
 	const onFinish = (value:any) => {
 		props.fetchRegister(value).then(()=>{
 			history.push('/');
+			history.go(0);
 		})
 	}
 

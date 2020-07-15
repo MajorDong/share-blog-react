@@ -30,7 +30,8 @@ const Create: React.FC<CreateProps> = () => {
 	}
 
 	const handleOnClick = (checked: boolean) => {
-		setAtIndex(() => checked)
+		// hook函数更新也是异步
+		setAtIndex((atIndex) => checked)
 	}
 
 	const handleConfrim = () => {
@@ -61,7 +62,7 @@ const Create: React.FC<CreateProps> = () => {
 					autoSize={{ minRows: 3, maxRows: 5 }}
 					onChange={handleDesChange}
 				/>
-				<p className="msg">限制30个子</p>
+				<p className="msg">限制30个字</p>
 				<h3>文章内容</h3>
 				<TextArea 
 					value={content}

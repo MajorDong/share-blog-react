@@ -14,7 +14,7 @@ const User = lazy(() => import('../pages/User/User'));
 
 export default function RouteIndex() {
 	const isLogin = useAuthStatus()
-
+	
 	return (
 		<Switch>
 			<Suspense fallback={<div>Loading</div>}>

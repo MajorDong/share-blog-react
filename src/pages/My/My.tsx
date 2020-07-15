@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './My.less';
-import { Avatar, List, Tag, Pagination, Modal, message } from 'antd';
+import { Avatar, List, Tag, Pagination, Modal,} from 'antd';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { Link, useLocation } from 'react-router-dom';
 import moment from 'moment';
@@ -76,9 +76,9 @@ const My: React.FC<MyProps> = (props) => {
 						renderItem={(blog: any) => (
 							<List.Item
 								key={blog.key}
-								// eslint-disable-next-line jsx-a11y/anchor-is-valid
 								actions={[
 								<Link to={`/edit/${blog.id}`}>编辑</Link>, 
+								// eslint-disable-next-line jsx-a11y/anchor-is-valid
 								<a onClick={(e)=> handleDelete(e, blog.id)}>删除</a>
 							]}
 							>
