@@ -18,7 +18,7 @@ const Login = (props: any) => {
 
 	const onFinish = async (values: any) => {
 		await props.fetchLogin(values);
-		history.push('/')
+		history.push('/?page=1')
 	};
 
 	return (

@@ -21,7 +21,7 @@ export const fetchLogin = (user: User) => (dispatch: any) => {
 	return httpAuth.login(user).then( (res: any) => {
 		if(res.status === 'ok'){
 			dispatch(setLogin(true));
-			dispatch(setUser(res));
+			dispatch(setUser(res.data));
 		}
 	})
 }

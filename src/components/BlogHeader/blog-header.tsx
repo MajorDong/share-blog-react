@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import './blog-header.less'
 import { Avatar, Popover, Menu, Dropdown } from 'antd';
 import { PlusCircleOutlined, UserOutlined } from '@ant-design/icons'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 export interface BlogHeaderProps {
 	isLogin: boolean,
@@ -24,12 +24,15 @@ const BlogHeader = memo(function BlogHeader(props: BlogHeaderProps) {
 		fetchLogout,
 	} = props
 
+	const history = useHistory();
+
 	useEffect(() => {
 		fetchCheckIsLogined();
 	}, [fetchCheckIsLogined])
 
 	const hangleOnCheckOut = () => {
 		fetchLogout();
+		history.push('/');
 	}
 
 	const headerBeforeLogin = (
@@ -77,7 +80,7 @@ const BlogHeader = memo(function BlogHeader(props: BlogHeaderProps) {
 			<h1><Link to='/'>BlOGTALK</Link></h1>
 			<div className="add-article">
 				<Popover content={popoverContent}>
-					<PlusCircleOutlined style={{ 'color': '#52c41a', 'fontSize': '32px' }} />
+					<Link to='/create'><PlusCircleOutlined style={{ 'color': '#52c41a', 'fontSize': '32px' }} /></Link>
 				</Popover>
 			</div>
 			<div className="user">
