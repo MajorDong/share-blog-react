@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { Switch, Route, Redirect } from "react-router-dom";
 import { useAuthStatus } from '../hooks/useAuthStatus';
+import { Spin } from 'antd';
 
 
 const Index = lazy(() => import('../pages/Index/Index'));
@@ -17,7 +18,7 @@ export default function RouteIndex() {
 	
 	return (
 		<Switch>
-			<Suspense fallback={<div>Loading</div>}>
+			<Suspense fallback={<Spin size="large" />}>
 				<Route exact path='/'>
 					<Index />
 				</Route>
